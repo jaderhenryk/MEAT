@@ -18,4 +18,8 @@ export class RestaurantsService {
 	restaurant(id: string) : Observable<Restaurant> {
 		return this.httpClient.get<Restaurant>(`${MEAT_API}/restaurants/${id}`);
 	}
+
+	reviews(id: string) : Observable<any> {
+		return this.httpClient.get<any>(`${MEAT_API}/restaurants/${id}/reviews`);
+	}
 }
