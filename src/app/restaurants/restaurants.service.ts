@@ -9,10 +9,9 @@ import {MEAT_API} from '../app.api'
 @Injectable()
 export class RestaurantsService {
 	
-
 	constructor (private httpClient: HttpClient) {};	
 
 	getRestaurants() : Observable<Restaurant[]> {
-		return this.httpClient.get(`${MEAT_API}/restaurants`);
+		return this.httpClient.get<Restaurant[]>(`${MEAT_API}/restaurants`);
 	}
 }
