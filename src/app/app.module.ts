@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import {registerLocaleData} from '@angular/common';
 
 import {ROUTES} from './app.routes';
 
@@ -17,6 +18,7 @@ import { MenuComponent } from './restaurant-detail/menu/menu.component';
 import { ShoppingCartComponent } from './restaurant-detail/shopping-cart/shopping-cart.component';
 import { MenuItemComponent } from './restaurant-detail/menu-item/menu-item.component';
 import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component';
+import { ShoppingCartService } from './restaurant-detail/shopping-cart/shopping-cart.service';
 
 @NgModule({
     declarations: [
@@ -37,7 +39,7 @@ import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component'
         HttpClientModule,
         RouterModule.forRoot(ROUTES)
     ],
-    providers: [RestaurantsService],
+    providers: [RestaurantsService, ShoppingCartService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
