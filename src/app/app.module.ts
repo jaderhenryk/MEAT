@@ -3,6 +3,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import {registerLocaleData} from '@angular/common';
+import localeBr from '@angular/common/locales/pt';
+registerLocaleData(localeBr);
 
 import {ROUTES} from './app.routes';
 
@@ -39,7 +41,7 @@ import { ShoppingCartService } from './restaurant-detail/shopping-cart/shopping-
         HttpClientModule,
         RouterModule.forRoot(ROUTES)
     ],
-    providers: [RestaurantsService, ShoppingCartService],
+    providers: [RestaurantsService, ShoppingCartService, {provide: LOCALE_ID, useValue: 'pt'}],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
