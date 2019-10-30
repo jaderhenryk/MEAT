@@ -3,7 +3,12 @@
 This project is a food delivery web application for study purpose, it was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.12.
 
 ## Installing Angular Dependencies
+
 Run `npm install` on project root folder to install all Angular modules as dependencies.
+
+## Installing and running json-server
+
+MEAT uses [json-server](https://github.com/typicode/json-server) to simulate a REST API. Run `npm i -g json-server` on project root folder to install it. Run `json-server db.sjon` to deploy the json server.
 
 ## Development server
 
