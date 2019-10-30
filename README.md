@@ -8,7 +8,7 @@ Run `npm install` on project root folder to install all Angular modules as depen
 
 ## Installing and running json-server
 
-MEAT uses [json-server](https://github.com/typicode/json-server) to simulate a REST API. Run `npm i -g json-server` on project root folder to install it. Run `json-server db.sjon` to deploy the json server.
+MEAT uses [json-server](https://github.com/typicode/json-server) to simulate a REST API. Run `npm i -g json-server` on project root folder to install it. Run `json-server db.json` to deploy the json server.
 
 ## Development server
 
