@@ -39,7 +39,7 @@
 				<div class="col-xs-12">
 					<p class="lead">Itens do Pedido:</p>
 				</div>
-				<mt-ordem-item></mt-ordem-item>
+				<mt-ordem-item [items]="cartItems()" (increaseQuantity)="increaseQuantity($event)" (decreaseQuantity)="decreaseQuantity($event)" (remove)="remove($event)"></mt-ordem-item>
 			</div>
 			<!-- /.row -->
 			<div class="row">

@@ -1,7 +1,7 @@
-<div class="col-xs-12" *ngIf="!items">
+<div class="col-xs-12" *ngIf="!items.length">
 	<h5>Seu carrinho está vazio. Comece a comprar agora clicando <a [routerLink]="['/restaurants']">aqui</a>.</h5>
 </div>
-<div class="col-xs-12 table-responsive" *ngIf="Items">
+<div class="col-xs-12 table-responsive" *ngIf="items.length">
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -21,7 +21,7 @@
 				</td>
 				<td>{{item.menuItem.name}}</td>
 				<td>{{item.menuItem.description}}</td>
-				<td class="text-right">{{itemvalue() | currency: 'BRL' : 'symbol'}}</td>
+				<td class="text-right">{{item.value() | currency: 'BRL' : 'symbol'}}</td>
 				<td class="text-right">
 					<a (click)="emitRemove(item)" class="btn btn-sm danger"><i class="fa fa-remove"></i></a>
 				</td>
