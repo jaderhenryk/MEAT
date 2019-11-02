@@ -17,6 +17,8 @@ export class OrderComponent implements OnInit {
 		{label: 'Cartão de Refeição', value: 'REF'}
 	];
 
+	shippingCosts:number = 5;
+
 	constructor(private orderService: OrderService) { }
 
 	ngOnInit() {
@@ -36,5 +38,9 @@ export class OrderComponent implements OnInit {
 
 	remove(item: CartItem):void {
 		this.orderService.remove(item);
+	}
+
+	itemsValue():number {
+		return this.orderService.itemsValue();
 	}
 }
