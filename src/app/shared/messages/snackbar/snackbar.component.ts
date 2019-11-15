@@ -15,7 +15,7 @@ import { NotificationService } from '../notification.service';
                 bottom: '0px'
             })),
             state('visible', style({
-                opacity: 1,
+                opacity: 0.8,
                 bottom: '30px'
             })),
             transition('hidden => visible', animate('500ms 0s ease-in')),
