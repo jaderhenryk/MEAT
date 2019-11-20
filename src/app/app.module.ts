@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { RouterModule, PreloadAllModules, PreloadingStrategy } from '@angular/router';
+// import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { registerLocaleData } from '@angular/common';
 import localeBr from '@angular/common/locales/pt';
 registerLocaleData(localeBr);
@@ -46,7 +47,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
         RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})
     ],
     providers: [
-        {provide: LOCALE_ID, useValue: 'pt'},
+        // {provide: LocationStrategy, useClass: HashLocationStrategy},
+        {provide: LOCALE_ID, useValue: 'pt'}
     ],
     bootstrap: [AppComponent]
 })
