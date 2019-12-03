@@ -6,7 +6,7 @@ export class ErrorHandler {
     static handleError(error: HttpErrorResponse | any) {
         let errorMessage: string;
         if (error instanceof HttpErrorResponse) {
-            errorMessage = `Erro ${error.status} ao obter a url ${error.url} - ${error.statusText}`;
+            errorMessage = `Erro ${error.status} ao obter a url ${error.url} - ${error.statusText || ''} ${error.error}`;
         } else {
             errorMessage = error.toString();
         }

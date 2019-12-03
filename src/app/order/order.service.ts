@@ -38,6 +38,6 @@ export class OrderService {
 	}
 
 	checkOrder(order: Order):Observable<Order> {
-		return this.httpClient.post<Order>(`${MEAT_API}/orders`, order, {headers: new HttpHeaders({'Content-Type': 'application/json'})});
+		return this.httpClient.post<Order>(`${MEAT_API}/orders`, order);
 	}
 }
