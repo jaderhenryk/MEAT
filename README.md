@@ -8,7 +8,14 @@ Run `npm install` on project root folder to install all Angular modules as depen
 
 ## Installing and running json-server
 
-MEAT uses [json-server](https://github.com/typicode/json-server) to simulate a REST API. Run `npm i -g json-server` on project root folder to install it. Run `json-server db.json` to deploy the json server.
+MEAT uses [json-server](https://github.com/typicode/json-server) to simulate a REST API. Run `npm i -g json-server` on project root folder to install it. 
+
+There are two ways to deploy the API backend server:
+
+1. Run `node backend/dist/server` to deploy the backend server.
+2. To able the server to update itself when the source code changes, it's necessary to install [nodemon](https://nodemon.io/), to do this run `npm i nodemon -g`, after installation run `nodemon --watch backend backend/dist/server.js` to deploy the server with auto update.
+
+The backend API server runs on port 3001.
 
 ## Development server
 
