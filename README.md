@@ -6,7 +6,7 @@ This project is a food delivery web application for study purpose, it was genera
 
 Run `npm install` on project root folder to install all Angular modules as dependencies.
 
-## Installing and running json-server
+## Running backend API server
 
 MEAT uses [json-server](https://github.com/typicode/json-server) to simulate a REST API. Run `npm i -g json-server` on project root folder to install it. 
 
