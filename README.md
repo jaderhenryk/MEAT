@@ -17,7 +17,7 @@ There are two ways to deploy the API backend server:
 
 The backend API server runs on port 3001.
 
-## Development server
+## Running client server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
