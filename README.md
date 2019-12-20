@@ -17,6 +17,12 @@ There are two ways to deploy the API backend server:
 
 The backend API server runs on port 3001.
 
+Issues when deploying backend server:
+If you get this erros when deploying the server:
+`internal/modules/cjs/loader.js...`
+`Error: Cannot find module 'json-server'`
+It's necessary to install json-server again on project with the command: `npm i json-server` without the `-g`.
+
 ## Running client server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
