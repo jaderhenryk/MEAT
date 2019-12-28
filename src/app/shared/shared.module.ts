@@ -1,5 +1,6 @@
 import {NgModule, ModuleWithProviders} from '@angular/core';
 import {CommonModule} from '@angular/common';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {RestaurantsService} from '../restaurants/restaurants.service';
@@ -13,7 +14,8 @@ import {InputComponent} from './input/input.component';
 import {RadioComponent} from './radio/radio.component';
 import {RatingComponent} from './rating/rating.component';
 import {SnackbarComponent} from './messages/snackbar/snackbar.component';
-import { OrderGuard } from '../order/security/orderGuard';
+import {OrderGuard} from '../order/security/orderGuard';
+import {AuthInterceptor} from '../security/auth.interceptor';
 
 @NgModule({
     declarations: [InputComponent, RadioComponent, RatingComponent, SnackbarComponent],
@@ -24,7 +26,16 @@ export class SharedModule {
     static forRoot(): ModuleWithProviders {
         return {
             ngModule: SharedModule,
-            providers: [RestaurantsService, ShoppingCartService, OrderService, NotificationService, LoginService, LoggedInGurad, OrderGuard]
+            providers: [
+                RestaurantsService,
+                ShoppingCartService,
+                OrderService,
+                NotificationService,
+                LoginService,
+                LoggedInGurad,
+                OrderGuard,
+                {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+            ]
         };
     }
 }
