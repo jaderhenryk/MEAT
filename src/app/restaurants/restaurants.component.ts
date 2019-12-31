@@ -5,8 +5,8 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Restaurant } from './restaurant/restaurant.model';
 import { RestaurantsService } from './restaurants.service';
 
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-import { ApplicationErrorHandler } from '../app.error-handler';
+import { debounceTime, distinctUntilChanged, switchMap, catchError } from 'rxjs/operators';
+import { from } from 'rxjs';
 
 @Component({
     selector: 'mt-restaurants',
@@ -34,7 +34,7 @@ export class RestaurantsComponent implements OnInit {
 
     restaurants: Restaurant[];
 
-    constructor(private restaurantService: RestaurantsService, private formBuilder: FormBuilder) { };
+    constructor(private restaurantService: RestaurantsService, private formBuilder: FormBuilder) {}
 
     ngOnInit() {
         this.searchControl = this.formBuilder.control('');
@@ -44,7 +44,9 @@ export class RestaurantsComponent implements OnInit {
         this.searchControl.valueChanges.pipe(
             debounceTime(500),
             distinctUntilChanged(),
-            switchMap(searchTerm => this.restaurantService.restaurants(searchTerm))
+            switchMap(searchTerm => this.restaurantService.restaurants(searchTerm).pipe(
+                catchError(error => from([]))
+            ))
         ).subscribe(restaurants => this.restaurants = restaurants);
         this.restaurantService.restaurants()
             .subscribe(restaurants => this.restaurants = restaurants);

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Restaurant } from './restaurant/restaurant.model';
 import { MenuItem } from '../restaurant-detail/menu-item/menu-item.model';
 
-import { MEAT_API } from '../app.api'
+import { MEAT_API } from '../app.api';
 
 @Injectable()
 export class RestaurantsService {
