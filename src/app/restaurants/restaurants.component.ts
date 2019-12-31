@@ -4,9 +4,9 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 import { Restaurant } from './restaurant/restaurant.model';
 import { RestaurantsService } from './restaurants.service';
-import { ErrorHandler } from '../app.error-handler';
 
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { ApplicationErrorHandler } from '../app.error-handler';
 
 @Component({
     selector: 'mt-restaurants',
@@ -42,12 +42,12 @@ export class RestaurantsComponent implements OnInit {
             searchControl: this.searchControl
         });
         this.searchControl.valueChanges.pipe(
-            debounceTime(500), 
-            distinctUntilChanged(), 
+            debounceTime(500),
+            distinctUntilChanged(),
             switchMap(searchTerm => this.restaurantService.restaurants(searchTerm))
-        ).subscribe(restaurants => this.restaurants = restaurants, err => console.log(ErrorHandler.handleError(err)));
+        ).subscribe(restaurants => this.restaurants = restaurants);
         this.restaurantService.restaurants()
-            .subscribe(restaurants => this.restaurants = restaurants, err => console.log(ErrorHandler.handleError(err)));
+            .subscribe(restaurants => this.restaurants = restaurants);
     }
 
     toggleSearchBar() {
