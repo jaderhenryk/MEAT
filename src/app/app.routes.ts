@@ -13,7 +13,7 @@ export const ROUTES = [
     { path: '', component: HomeComponent },
     { path: 'login/:to', component: LoginComponent },
     { path: 'login', component: LoginComponent },
-    { path: 'about', loadChildren: './about/about.module#AboutModule' },
+    { path: 'about', loadChildren: () => import('./about/about.module').then(m => m.AboutModule) },
     { path: 'restaurants', component: RestaurantsComponent },
     {
         path: 'restaurants/:id', component: RestaurantDetailComponent,
@@ -23,7 +23,7 @@ export const ROUTES = [
             { path: 'reviews', component: ReviewsComponent }
         ]
     },
-    { path: 'order', loadChildren: './order/order.module#OrderModule', canLoad: [LoggedInGurad], canActivate: [LoggedInGurad] },
+    { path: 'order', loadChildren: () => import('./order/order.module').then(m => m.OrderModule), canLoad: [LoggedInGurad], canActivate: [LoggedInGurad] },
     { path: 'order-summary', component: OrderSummaryComponent },
     { path: '**', component: NotFoundComponent }
 ]
