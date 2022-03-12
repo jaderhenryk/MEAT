@@ -49,7 +49,7 @@ import { ApplicationErrorHandler } from './app.error-handler';
         BrowserAnimationsModule,
         HttpClientModule,
         SharedModule.forRoot(),
-        RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})
+        RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules, relativeLinkResolution: 'legacy' })
     ],
     providers: [
         // {provide: LocationStrategy, useClass: HashLocationStrategy},
