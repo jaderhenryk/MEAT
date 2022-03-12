@@ -23,7 +23,7 @@ import {AuthInterceptor} from '../security/auth.interceptor';
     exports: [InputComponent, RadioComponent, RatingComponent, SnackbarComponent, CommonModule, FormsModule, ReactiveFormsModule]
 })
 export class SharedModule {
-    static forRoot(): ModuleWithProviders {
+    static forRoot(): ModuleWithProviders<SharedModule> {
         return {
             ngModule: SharedModule,
             providers: [
