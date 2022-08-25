@@ -1,20 +1,22 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-	selector: 'mt-delivery-costs',
-	templateUrl: './delivery-costs.component.html'
+  selector: 'mt-delivery-costs',
+  templateUrl: './delivery-costs.component.html'
 })
 export class DeliveryCostsComponent implements OnInit {
 
-	@Input() shippingCosts:number;
-	@Input() itemsValue:number;
+  @Input()
+  shippingCosts: number = 0;
+  @Input()
+  itemsValue: number = 0;
 
-	constructor() { }
+  constructor() { }
 
-	ngOnInit() {
-	}
+  ngOnInit(): void {
+  }
 
-	total():number {
-		return this.shippingCosts + this.itemsValue;
-	}
+  total(): number {
+    return this.shippingCosts + this.itemsValue;
+  }
 }

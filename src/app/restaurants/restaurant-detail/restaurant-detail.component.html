@@ -1,0 +1,45 @@
+<section class="content-header">
+  <a [routerLink]="['../']">Voltar para restaurantes</a>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box box-solid">
+        <div class="box-header with-border">
+          <i class="fa fa-home"></i>
+          <h3 class="box-title">
+            {{restaurant?.name}}
+          </h3>
+          <span class="pull-right">
+            <i class="fa fa-star"></i>
+            {{restaurant?.rating}}
+          </span>
+        </div>
+        <div class="box-body">
+          <div class="col-sm-3 col-xs-12" *ngIf="restaurant">
+            <img [src]="restaurant.imagePath" class="box-img-detail">
+          </div>
+          <dl class="col-sm-9 col-xs-12">
+            <dt>{{restaurant?.category}}</dt>
+            <dd>Padaria</dd>
+            <dt>Quem somos</dt>
+            <dd>{{restaurant?.about}}</dd>
+            <dt>Horários</dt>
+            <dd>{{restaurant?.hours}}</dd>
+          </dl>
+        </div>
+        <div class="box-footer detail-footer">
+          <a [routerLink]="['menu']" routerLinkActive="detail-active" class="pull-left">
+            Menu
+          </a>
+          <a [routerLink]="['reviews']" routerLinkActive="detail-active" class="pull-right">
+            Avaliações
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <router-outlet></router-outlet>
+  </div>
+</section>

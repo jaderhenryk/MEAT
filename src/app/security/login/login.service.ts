@@ -9,26 +9,30 @@ import { Router, NavigationEnd } from '@angular/router';
 @Injectable()
 export class LoginService {
 
-    user: User;
-    previousUrl: string;
+  user: User | undefined;
+  previousUrl = "";
 
-    constructor(private httpClient: HttpClient, private router: Router) {
-        this.router.events.pipe(filter(e => e instanceof NavigationEnd)).subscribe((e: NavigationEnd) => this.previousUrl = e.url);
-    }
+  constructor(private httpClient: HttpClient, private router: Router) {
+    this.router.events.pipe(
+      filter((e): e is NavigationEnd => e instanceof NavigationEnd)
+    )
+      .subscribe((e: NavigationEnd) => this.previousUrl = e.url);
+  }
 
-    login(email: string, password: string): Observable<User> {
-        return this.httpClient.post<User>(`${MEAT_API}/login`, {email, password}).pipe(tap(user => this.user = user));
-    }
+  login(email: string, password: string): Observable<User> {
+    return this.httpClient.post<User>(`${MEAT_API}/login`, { email, password }).pipe(tap(user => this.user = user));
+  }
 
-    logout() {
-        this.user = undefined;
-    }
+  logout() {
+    this.user = undefined;
+  }
 
-    isLoggedIn(): boolean {
-        return this.user !== undefined;
-    }
+  isLoggedIn(): boolean {
+    return this.user !== undefined;
+  }
 
-    handleLogin(path: string = this.previousUrl) {
-        this.router.navigate(['/login', btoa(path)]);
-    }
+  handleLogin(path: string = this.previousUrl) {
+    // this.router.navigate(['/login', btoa(path)]);
+    this.router.navigate(['/login', btoa(path)]);
+  }
 }

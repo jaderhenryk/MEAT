@@ -20,19 +20,19 @@
 					</span>
 				</div>
 				<div class="col-sm-4 col-xs-12">
-					<mt-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Nome">
+					<mt-input errorMessage="Campo obrigatório e com 5 caracteres" label="Nome">
 						<input class="form-control" type="text" formControlName="name" placeholder="Nome" autocomplete="off">
-					</mt-input-container>
+					</mt-input>
 				</div>
 				<div class="col-sm-4 col-xs-12">
-					<mt-input-container errorMessage="E-mail inválido" label="E-mail">
+					<mt-input errorMessage="E-mail inválido" label="E-mail">
 						<input class="form-control" type="text" formControlName="email" placeholder="E-mail" autocomplete="off">
-					</mt-input-container>
+					</mt-input>
 				</div>
 				<div class="col-sm-4 col-xs-12">
-					<mt-input-container errorMessage="E-mail de confirmação" label="E-mail">
+					<mt-input errorMessage="E-mail de confirmação" label="E-mail">
 						<input class="form-control" type="text" formControlName="emailConfirmation" placeholder="E-mail de confirmação" autocomplete="off">
-					</mt-input-container>
+					</mt-input>
 				</div>
 			</div>       
 			<div class="row">
@@ -40,26 +40,26 @@
 					<p class="lead">Endereço de Entrega:</p>
 				</div>
 				<div class="col-sm-6 col-xs-12">
-					<mt-input-container errorMessage="Campo obrigatório e com 5 caracteres" label="Endereço">
+					<mt-input errorMessage="Campo obrigatório e com 5 caracteres" label="Endereço">
 						<input class="form-control" type="text" formControlName="address" placeholder="Endereço" autocomplete="off">
-					</mt-input-container>
+					</mt-input>
 				</div>
 				<div class="col-sm-3 col-xs-6">
-					<mt-input-container errorMessage="Campo obrigatório e somente números" label="Número">
+					<mt-input errorMessage="Campo obrigatório e somente números" label="Número">
 						<input type="text" class="form-control" formControlName="number" placeholder="Número" autocomplete="off">
-					</mt-input-container>
+					</mt-input>
 				</div>
 				<div class="col-sm-3 col-xs-6">
-					<mt-input-container label="Complemento">
+					<mt-input label="Complemento">
 						<input type="text" class="form-control" formControlName="optionalAddress" placeholder="Complemento">
-					</mt-input-container>
+					</mt-input>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-xs-12">
 					<p class="lead">Itens do Pedido:</p>
 				</div>
-				<mt-ordem-item [items]="cartItems()" (increaseQuantity)="increaseQuantity($event)" (decreaseQuantity)="decreaseQuantity($event)" (remove)="remove($event)"></mt-ordem-item>
+				<mt-order-item [items]="cartItems()" (increaseQuantity)="increaseQuantity($event)" (decreaseQuantity)="decreaseQuantity($event)" (remove)="remove($event)"></mt-order-item>
 			</div>
 			<div class="row">
 				<div class="col-sm-6 col-xs-12">
