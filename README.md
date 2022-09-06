@@ -1,6 +1,6 @@
 # Meat
 
-This project is a food delivery web application for study purpose, it was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.12.
+This project is a food delivery web application for study purpose, it was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
 
 ## Installing Angular Dependencies
 
